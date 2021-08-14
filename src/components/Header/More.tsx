@@ -52,6 +52,8 @@ export default function Menu() {
   const { i18n } = useLingui()
   const solutions = items(i18n)
 
+  return null;
+
   return (
     <Popover className="relative ml-auto md:m-0">
       {({ open }) => (

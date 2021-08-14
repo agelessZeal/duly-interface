@@ -28,7 +28,7 @@ export const Popup = styled.div`
 
 const AnimatedFader = animated(({ children, ...rest }) => (
   <div className="h-[3px] bg-dark-800 w-full">
-    <div className="h-[3px] bg-gradient-to-r from-blue to-pink " {...rest}>
+    <div className="h-[3px] bg-gradient-to-br from-yellow to-pink " {...rest}>
       {children}
     </div>
   </div>
