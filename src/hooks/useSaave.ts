@@ -54,7 +54,7 @@ const useMaker = () => {
       if (amount?.value) {
         try {
           const tx = await saaveContract?.saave(amount?.value)
-          return addTransaction(tx, { summary: 'SUSHI → xSUSHI → aXSUSHI' })
+          return addTransaction(tx, { summary: 'DULY → xSUSHI → aXSUSHI' })
         } catch (e) {
           return e
         }

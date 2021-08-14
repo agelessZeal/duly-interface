@@ -103,7 +103,7 @@ export default function Farm(): JSX.Element {
       const rewardPerBlock = (pool.allocPoint / pool.owner.totalAllocPoint) * sushiPerBlock
 
       const defaultReward = {
-        token: 'SUSHI',
+        token: 'DULY',
         icon: 'https://raw.githubusercontent.com/sushiswap/icons/master/token/sushi.jpg',
         rewardPerBlock,
         rewardPerDay: rewardPerBlock * blocksPerDay,
@@ -264,7 +264,7 @@ export default function Farm(): JSX.Element {
     <>
       <Head>
         <title>Farm | Duly</title>
-        <meta key="description" name="description" content="Farm SUSHI" />
+        <meta key="description" name="description" content="Farm DULY" />
       </Head>
       <Container maxWidth="full" className="grid h-full grid-cols-4 mx-auto gap-9">
         <div className={classNames('sticky top-0 hidden lg:block md:col-span-1')} style={{ maxHeight: '40rem' }}>

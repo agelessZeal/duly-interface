@@ -1,6 +1,6 @@
 import { ArrowDownIcon, InformationCircleIcon } from '@heroicons/react/solid'
 import { ChainId, Currency, Token } from '@sushiswap/sdk'
-import { MEOW, SUSHI } from '../../constants'
+import { MEOW, DULY } from '../../constants'
 import React, { useCallback, useMemo, useState } from 'react'
 
 import CurrencyInputPanel from '../../features/meowshi/CurrencyInputPanel'
@@ -53,7 +53,7 @@ export default function Meowshi() {
   })
 
   const [currencies, setCurrencies] = useState({
-    [Field.INPUT]: SUSHI[ChainId.MAINNET],
+    [Field.INPUT]: DULY[ChainId.MAINNET],
     [Field.OUTPUT]: MEOW,
   })
 
@@ -61,8 +61,8 @@ export default function Meowshi() {
     (val, field) => {
       const inputCurrency = currencies[Field.INPUT]
       const outputCurrency = currencies[Field.OUTPUT]
-      const inputRate = inputCurrency === SUSHI[ChainId.MAINNET] ? (100000 / MeowPerSushi).toFixed(0) : '100000'
-      const outputRate = outputCurrency === SUSHI[ChainId.MAINNET] ? (100000 / MeowPerSushi).toFixed(0) : '100000'
+      const inputRate = inputCurrency === DULY[ChainId.MAINNET] ? (100000 / MeowPerSushi).toFixed(0) : '100000'
+      const outputRate = outputCurrency === DULY[ChainId.MAINNET] ? (100000 / MeowPerSushi).toFixed(0) : '100000'
 
       if (field === Field.INPUT) {
         if (currencies[Field.OUTPUT] === MEOW) {
@@ -152,8 +152,8 @@ export default function Meowshi() {
             </div>
             <Typography variant="sm" className="text-secondary ml-[26px]">
               {currencies[Field.INPUT]?.symbol} →{' '}
-              {(currencies[Field.INPUT] === SUSHI[ChainId.MAINNET] ||
-                currencies[Field.OUTPUT] === SUSHI[ChainId.MAINNET]) &&
+              {(currencies[Field.INPUT] === DULY[ChainId.MAINNET] ||
+                currencies[Field.OUTPUT] === DULY[ChainId.MAINNET]) &&
                 ' xSUSHI → '}
               {currencies[Field.OUTPUT]?.symbol}
             </Typography>

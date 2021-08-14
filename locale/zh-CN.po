@@ -15,7 +15,7 @@ msgstr ""
 
 msgid ""
 "(COMING SOON) Accrue automatic yield through flash loans and\n"
-"SUSHI strategies"
+"DULY strategies"
 msgstr ""
 "（即将推出）通过闪电贷和\n"
 "SUSHI策略累积自动获取收益"
@@ -191,7 +191,7 @@ msgstr ""
 msgid "Chinese"
 msgstr ""
 
-msgid "Claim SUSHI"
+msgid "Claim DULY"
 msgstr "获取SUSHI"
 
 msgid "Claimed"
@@ -280,7 +280,7 @@ msgstr ""
 msgid "Deposit"
 msgstr "存款"
 
-msgid "Deposit SUSHI into BentoBox"
+msgid "Deposit DULY into BentoBox"
 msgstr "将SUSHI存入BentoBox"
 
 msgid "Deposit tokens into BentoBox for all the yields"
@@ -379,11 +379,11 @@ msgid "Find Pool"
 msgstr "查找池"
 
 msgid ""
-"For every swap on the exchange on every chain, 0.05% of the swap fees are distributed as SUSHI\n"
-"proportional to your share of the SushiBar. When your SUSHI is staked into the SushiBar, you recieve\n"
+"For every swap on the exchange on every chain, 0.05% of the swap fees are distributed as DULY\n"
+"proportional to your share of the SushiBar. When your DULY is staked into the SushiBar, you recieve\n"
 "xSUSHI in return for voting rights and a fully composable token that can interact with other protocols.\n"
 "Your xSUSHI is continuously compounding, when you unstake you will receive all the originally deposited\n"
-"SUSHI and any additional from fees."
+"DULY and any additional from fees."
 msgstr "每条链上每笔交易手续费的0.05%都分给SushiBar（以SUSHI的形式）。当您的SUSHI质押在SushiBar的时候，您将会收到xSUSHI，它有治理权及可以与其它协议交互。xSUSHI可持续复利，当您解除质押时，您将收到质押时的SUSHI及手续费。"
 
 msgid "French"
@@ -409,7 +409,7 @@ msgstr "硬件钱包"
 msgid "Harmony Bridge"
 msgstr ""
 
-msgid "Harvest {0} SUSHI {1}"
+msgid "Harvest {0} DULY {1}"
 msgstr ""
 
 msgid "Have assets you want to earn additional interest on? Lend them in isolated markets and earn interest from borrowers."
@@ -424,8 +424,8 @@ msgstr "锁仓的总数：连接钱包"
 msgid "Historical Total Locked: Fetching Total"
 msgstr "锁仓的总数：获取总数"
 
-msgid "Historical Total Locked: {0} SUSHI"
-msgstr "锁仓的总数：{0}SUSHI"
+msgid "Historical Total Locked: {0} DULY"
+msgstr "锁仓的总数：{0}DULY"
 
 msgid "If you want to supply to a market that is not listed yet, you can use this tool to create a new pair."
 msgstr ""
@@ -567,7 +567,7 @@ msgstr ""
 msgid "Max"
 msgstr "最大数量"
 
-msgid "Maximize yield by staking SUSHI for xSUSHI"
+msgid "Maximize yield by staking DULY for xSUSHI"
 msgstr "将SUSHI质押成xSUSHI最大化收益"
 
 msgid "Maximum sent"
@@ -600,7 +600,7 @@ msgstr ""
 msgid "My Orders"
 msgstr ""
 
-msgid "My SUSHI"
+msgid "My DULY"
 msgstr ""
 
 msgid "Network not supported yet"
@@ -836,10 +836,10 @@ msgstr "使用SAAVE叠加收益"
 msgid "Stake"
 msgstr "质押"
 
-msgid "Stake SUSHI"
+msgid "Stake DULY"
 msgstr "质押SUSHI"
 
-msgid "Stake SUSHI for xSUSHI"
+msgid "Stake DULY for xSUSHI"
 msgstr "将SUSHI质押成xSUSHI"
 
 msgid ""
@@ -894,7 +894,7 @@ msgstr ""
 msgid "The transaction could not be sent because the deadline has passed. Please check that your transaction deadline is not too low."
 msgstr ""
 
-msgid "Things you can do with your SUSHI"
+msgid "Things you can do with your DULY"
 msgstr "SUSHI可以做的事情"
 
 msgid "This token doesn't appear on the active token list(s). Make sure this is the token that you want to trade."
@@ -971,7 +971,7 @@ msgstr "不支持的资产"
 msgid "Unwrap"
 msgstr "解开"
 
-msgid "Use SUSHI"
+msgid "Use DULY"
 msgstr ""
 
 msgid "Use this tool to find pairs that don't automatically appear in the interface"
@@ -1058,7 +1058,7 @@ msgstr "您将收到"
 msgid "Your"
 msgstr ""
 
-msgid "Your Claimable SUSHI this Week"
+msgid "Your Claimable DULY this Week"
 msgstr "本周您可领取的SUSHI"
 
 msgid "Your Liquidity"
