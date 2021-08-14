@@ -50,17 +50,11 @@ msgstr "Добавить"
 msgid "Add Liquidity"
 msgstr "Добавить ликвидность"
 
-msgid "Add SUSHI to your MetaMask wallet"
-msgstr ""
-
 msgid "Add collateral in order to borrow assets"
 msgstr "Добавьте залог, чтобы заимствовать активы"
 
 msgid "Add liquidity"
 msgstr "Добавить ликвидность"
-
-msgid "Add xSUSHI to your MetaMask wallet"
-msgstr ""
 
 msgid "Add {0} to MetaMask"
 msgstr ""
@@ -324,6 +318,12 @@ msgstr "Документация для разработчиков Duly."
 msgid "Documentation for users of Duly."
 msgstr "Документация для пользователей Duly."
 
+msgid "Duly is a supporter of Open Source."
+msgstr "Duly поддерживает Open Source."
+
+msgid "DulySwap"
+msgstr ""
+
 msgid "Either return to the {link}, or change to an available network."
 msgstr ""
 
@@ -374,9 +374,6 @@ msgid "Expiration is the time at which the order will become invalid"
 msgstr ""
 
 msgid "Expired"
-msgstr ""
-
-msgid "Farm"
 msgstr ""
 
 msgid "Filled"
@@ -498,9 +495,6 @@ msgstr ""
 msgid "Learn more about wallets"
 msgstr ""
 
-msgid "Lend"
-msgstr "Предоставить кредит"
-
 msgid "Lend assets for interest from borrowers."
 msgstr "Давайте активы в кредит под проценты от заемщиков."
 
@@ -613,9 +607,6 @@ msgstr ""
 
 msgid "Minimum received"
 msgstr "Полученный минимум"
-
-msgid "Miso"
-msgstr ""
 
 msgid "My Liquidity Positions"
 msgstr ""
@@ -877,12 +868,6 @@ msgstr "Ставка годовых"
 
 msgid "Supplying {0} {1} and {2} {3}"
 msgstr "Поставка {0} {1} и {2} {3}"
-
-msgid "Duly is a supporter of Open Source."
-msgstr "Duly поддерживает Open Source."
-
-msgid "DulySwap"
-msgstr ""
 
 msgid "Swap"
 msgstr "Обменять"

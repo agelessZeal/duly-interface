@@ -50,17 +50,11 @@ msgstr "Add"
 msgid "Add Liquidity"
 msgstr "Add Liquidity"
 
-msgid "Add SUSHI to your MetaMask wallet"
-msgstr "Add SUSHI to your MetaMask wallet"
-
 msgid "Add collateral in order to borrow assets"
 msgstr "Add collateral in order to borrow assets"
 
 msgid "Add liquidity"
 msgstr "Add liquidity"
-
-msgid "Add xSUSHI to your MetaMask wallet"
-msgstr "Add xSUSHI to your MetaMask wallet"
 
 msgid "Add {0} to MetaMask"
 msgstr "Add {0} to MetaMask"
@@ -327,6 +321,12 @@ msgstr "Documentation for developers of Duly."
 msgid "Documentation for users of Duly."
 msgstr "Documentation for users of Duly."
 
+msgid "Duly is a supporter of Open Source."
+msgstr "Duly is a supporter of Open Source."
+
+msgid "DulySwap"
+msgstr "DulySwap"
+
 msgid "Either return to the {link}, or change to an available network."
 msgstr "Either return to the {link}, or change to an available network."
 
@@ -378,9 +378,6 @@ msgstr "Expiration is the time at which the order will become invalid"
 
 msgid "Expired"
 msgstr "Expired"
-
-msgid "Farm"
-msgstr "Farm"
 
 msgid "Filled"
 msgstr "Filled"
@@ -501,9 +498,6 @@ msgstr "LTV"
 msgid "Learn more about wallets"
 msgstr "Learn more about wallets"
 
-msgid "Lend"
-msgstr "Lend"
-
 msgid "Lend assets for interest from borrowers."
 msgstr "Lend assets for interest from borrowers."
 
@@ -618,9 +612,6 @@ msgstr "Minimum Received"
 
 msgid "Minimum received"
 msgstr "Minimum received"
-
-msgid "Miso"
-msgstr "Miso"
 
 msgid "My Liquidity Positions"
 msgstr "My Liquidity Positions"
@@ -884,12 +875,6 @@ msgstr "Staking APR"
 
 msgid "Supplying {0} {1} and {2} {3}"
 msgstr "Supplying {0} {1} and {2} {3}"
-
-msgid "Duly is a supporter of Open Source."
-msgstr "Duly is a supporter of Open Source."
-
-msgid "DulySwap"
-msgstr "DulySwap"
 
 msgid "Swap"
 msgstr "Swap"

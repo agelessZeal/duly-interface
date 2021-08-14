@@ -50,17 +50,11 @@ msgstr "Thêm"
 msgid "Add Liquidity"
 msgstr "Thêm thanh khoản"
 
-msgid "Add SUSHI to your MetaMask wallet"
-msgstr ""
-
 msgid "Add collateral in order to borrow assets"
 msgstr "Thêm tài sản thế chấp để vay tài sản"
 
 msgid "Add liquidity"
 msgstr "Thêm thanh khoản"
-
-msgid "Add xSUSHI to your MetaMask wallet"
-msgstr ""
 
 msgid "Add {0} to MetaMask"
 msgstr ""
@@ -322,6 +316,12 @@ msgstr "Tài liệu dành cho các nhà phát triển Duly."
 msgid "Documentation for users of Duly."
 msgstr "Tài liệu cho người dùng Duly."
 
+msgid "Duly is a supporter of Open Source."
+msgstr "Duly là người ủng hộ Mã nguồn mở."
+
+msgid "DulySwap"
+msgstr ""
+
 msgid "Either return to the {link}, or change to an available network."
 msgstr ""
 
@@ -372,9 +372,6 @@ msgid "Expiration is the time at which the order will become invalid"
 msgstr ""
 
 msgid "Expired"
-msgstr ""
-
-msgid "Farm"
 msgstr ""
 
 msgid "Filled"
@@ -496,9 +493,6 @@ msgstr ""
 msgid "Learn more about wallets"
 msgstr ""
 
-msgid "Lend"
-msgstr "Cho vay"
-
 msgid "Lend assets for interest from borrowers."
 msgstr "Cho khách hàng vay tài sản lấy lãi."
 
@@ -611,9 +605,6 @@ msgstr ""
 
 msgid "Minimum received"
 msgstr "Số tiền nhận được tối thiểu"
-
-msgid "Miso"
-msgstr ""
 
 msgid "My Liquidity Positions"
 msgstr ""
@@ -875,12 +866,6 @@ msgstr "APR đặt cược"
 
 msgid "Supplying {0} {1} and {2} {3}"
 msgstr "Tổng cung {0} {1} và {2} {3}"
-
-msgid "Duly is a supporter of Open Source."
-msgstr "Duly là người ủng hộ Mã nguồn mở."
-
-msgid "DulySwap"
-msgstr ""
 
 msgid "Swap"
 msgstr "Hoán đổi"

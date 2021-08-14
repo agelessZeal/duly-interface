@@ -50,17 +50,11 @@ msgstr "추가"
 msgid "Add Liquidity"
 msgstr "유동성 추가"
 
-msgid "Add SUSHI to your MetaMask wallet"
-msgstr ""
-
 msgid "Add collateral in order to borrow assets"
 msgstr "자산을 빌리려면 담보를 추가하세요"
 
 msgid "Add liquidity"
 msgstr "유동성 추가"
-
-msgid "Add xSUSHI to your MetaMask wallet"
-msgstr ""
 
 msgid "Add {0} to MetaMask"
 msgstr ""
@@ -324,6 +318,12 @@ msgstr "Duly 개발자를 위한 문서."
 msgid "Documentation for users of Duly."
 msgstr "Duly 사용자를 위한 문서."
 
+msgid "Duly is a supporter of Open Source."
+msgstr "스시는 오픈 소스를 지지합니다."
+
+msgid "DulySwap"
+msgstr ""
+
 msgid "Either return to the {link}, or change to an available network."
 msgstr ""
 
@@ -374,9 +374,6 @@ msgid "Expiration is the time at which the order will become invalid"
 msgstr ""
 
 msgid "Expired"
-msgstr ""
-
-msgid "Farm"
 msgstr ""
 
 msgid "Filled"
@@ -496,9 +493,6 @@ msgstr ""
 msgid "Learn more about wallets"
 msgstr ""
 
-msgid "Lend"
-msgstr "대출해주기"
-
 msgid "Lend assets for interest from borrowers."
 msgstr "자산을 대출하고 대출에 대한 이자수익을 벌어보세요."
 
@@ -611,9 +605,6 @@ msgstr ""
 
 msgid "Minimum received"
 msgstr "최소 수령"
-
-msgid "Miso"
-msgstr ""
 
 msgid "My Liquidity Positions"
 msgstr ""
@@ -875,12 +866,6 @@ msgstr "APR 스테이킹"
 
 msgid "Supplying {0} {1} and {2} {3}"
 msgstr "{0} {1} 및 {2} {3} 공급 중"
-
-msgid "Duly is a supporter of Open Source."
-msgstr "스시는 오픈 소스를 지지합니다."
-
-msgid "DulySwap"
-msgstr ""
 
 msgid "Swap"
 msgstr "스왑"

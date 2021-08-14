@@ -50,17 +50,11 @@ msgstr "添加"
 msgid "Add Liquidity"
 msgstr "添加流動性"
 
-msgid "Add SUSHI to your MetaMask wallet"
-msgstr ""
-
 msgid "Add collateral in order to borrow assets"
 msgstr "添加抵押品以借出資產"
 
 msgid "Add liquidity"
 msgstr "添加流動性"
-
-msgid "Add xSUSHI to your MetaMask wallet"
-msgstr ""
 
 msgid "Add {0} to MetaMask"
 msgstr ""
@@ -322,6 +316,12 @@ msgstr "Sushi開發文檔。"
 msgid "Documentation for users of Duly."
 msgstr "Sushi用户文档。"
 
+msgid "Duly is a supporter of Open Source."
+msgstr "Sushi是開源協議的支持者。"
+
+msgid "DulySwap"
+msgstr ""
+
 msgid "Either return to the {link}, or change to an available network."
 msgstr ""
 
@@ -370,9 +370,6 @@ msgid "Expiration is the time at which the order will become invalid"
 msgstr ""
 
 msgid "Expired"
-msgstr ""
-
-msgid "Farm"
 msgstr ""
 
 msgid "Filled"
@@ -487,9 +484,6 @@ msgstr ""
 msgid "Learn more about wallets"
 msgstr ""
 
-msgid "Lend"
-msgstr "借貸"
-
 msgid "Lend assets for interest from borrowers."
 msgstr "向借款人收取的利息"
 
@@ -599,9 +593,6 @@ msgstr ""
 
 msgid "Minimum received"
 msgstr "最少可獲得的數量"
-
-msgid "Miso"
-msgstr ""
 
 msgid "My Liquidity Positions"
 msgstr ""
@@ -863,12 +854,6 @@ msgstr "質押APR"
 
 msgid "Supplying {0} {1} and {2} {3}"
 msgstr "提供{0} {1}和{2} {3}"
-
-msgid "Duly is a supporter of Open Source."
-msgstr "Sushi是開源協議的支持者。"
-
-msgid "DulySwap"
-msgstr ""
 
 msgid "Swap"
 msgstr "代幣兌換"
