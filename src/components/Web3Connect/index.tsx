@@ -36,6 +36,7 @@ export default function Web3Connect({ color = 'gray', size = 'sm', className = '
       className={className + ' bg-yellow-900'}
       size={size}
       {...rest}
+      style={{backgroundColor:'#b97b56'}}
     >
       {i18n._(t`Connect to a wallet`)}
     </Button>
