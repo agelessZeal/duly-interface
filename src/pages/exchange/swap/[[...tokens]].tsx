@@ -426,7 +426,7 @@ export default function Swap() {
   return (
     <>
       <Head>
-        <title>{i18n._(t`DulySwap`)} | Duly</title>
+        <title>{i18n._(t`DulySwapped`)} | Duly</title>
         <meta
           key="description"
           name="description"
