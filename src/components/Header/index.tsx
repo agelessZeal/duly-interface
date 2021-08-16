@@ -30,13 +30,13 @@ function AppBar(): JSX.Element {
   return (
     //     // <header className="flex flex-row justify-between w-screen flex-nowrap">
     <header className="flex-shrink-0 w-full">
-      <Popover as="nav" className="z-10 w-full bg-transparent header-border-b">
+      <Popover as="nav" className="z-10 w-full bg-transparent header-border-r">
         {({ open }) => (
           <>
             <div className="px-4 py-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
-                  <Image src="/logo.png" alt="Duly" width="32px" height="32px" />
+                  <Image src="/logo.png" alt="Duly" width="120px" height="32px" />
                   <div className="hidden sm:block sm:ml-4">
                     <div className="flex space-x-2">
                       {/* <Buy /> */}
@@ -45,15 +45,23 @@ function AppBar(): JSX.Element {
                           id={`swap-nav-link`}
                           className="p-2 text-baseline text-primary hover:text-high-emphesis focus:text-high-emphesis md:p-3 whitespace-nowrap"
                         >
-                          {i18n._(t`Swap`)}
+                          {i18n._(t`Home`)}
                         </a>
                       </NavLink>
-                      <NavLink href="/pool">
+                      <NavLink href="/">
                         <a
                           id={`pool-nav-link`}
                           className="p-2 text-baseline text-primary hover:text-high-emphesis focus:text-high-emphesis md:p-3 whitespace-nowrap"
                         >
-                          {i18n._(t`Pool`)}
+                          {i18n._(t`About Us`)}
+                        </a>
+                      </NavLink>
+                      <NavLink href="/">
+                        <a
+                          id={`pool-nav-link`}
+                          className="p-2 text-baseline text-primary hover:text-high-emphesis focus:text-high-emphesis md:p-3 whitespace-nowrap"
+                        >
+                          {i18n._(t`Contact Us`)}
                         </a>
                       </NavLink>
                       {/* {chainId && [ChainId.MAINNET, ChainId.MATIC, ChainId.BSC].includes(chainId) && (
@@ -262,15 +270,24 @@ function AppBar(): JSX.Element {
                     id={`swap-nav-link`}
                     className="p-2 text-baseline text-primary hover:text-high-emphesis focus:text-high-emphesis md:p-3 whitespace-nowrap"
                   >
-                    {i18n._(t`Swap`)}
+                    {i18n._(t`Home`)}
                   </a>
                 </Link>
-                <Link href={'/pool'}>
+                <Link href={'/'}>
                   <a
                     id={`pool-nav-link`}
                     className="p-2 text-baseline text-primary hover:text-high-emphesis focus:text-high-emphesis md:p-3 whitespace-nowrap"
                   >
-                    {i18n._(t`Pool`)}
+                    {i18n._(t`About Us`)}
+                  </a>
+                </Link>
+
+                <Link href={'/'}>
+                  <a
+                    id={`pool-nav-link`}
+                    className="p-2 text-baseline text-primary hover:text-high-emphesis focus:text-high-emphesis md:p-3 whitespace-nowrap"
+                  >
+                    {i18n._(t`Contact Us`)}
                   </a>
                 </Link>
 

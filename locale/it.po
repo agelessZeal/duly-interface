@@ -605,13 +605,13 @@ msgstr ""
 msgid "Minimum received"
 msgstr "Minimo ricevuto"
 
+msgid "My DULY"
+msgstr ""
+
 msgid "My Liquidity Positions"
 msgstr ""
 
 msgid "My Orders"
-msgstr ""
-
-msgid "My DULY"
 msgstr ""
 
 msgid "Network not supported yet"

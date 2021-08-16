@@ -613,14 +613,14 @@ msgstr "Minimum Received"
 msgid "Minimum received"
 msgstr "Minimum received"
 
+msgid "My DULY"
+msgstr "My DULY"
+
 msgid "My Liquidity Positions"
 msgstr "My Liquidity Positions"
 
 msgid "My Orders"
 msgstr "My Orders"
-
-msgid "My DULY"
-msgstr "My DULY"
 
 msgid "Network not supported yet"
 msgstr "Network not supported yet"

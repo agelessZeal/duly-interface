@@ -594,13 +594,13 @@ msgstr ""
 msgid "Minimum received"
 msgstr "最少可獲得的數量"
 
+msgid "My DULY"
+msgstr ""
+
 msgid "My Liquidity Positions"
 msgstr ""
 
 msgid "My Orders"
-msgstr ""
-
-msgid "My DULY"
 msgstr ""
 
 msgid "Network not supported yet"
