@@ -39,6 +39,7 @@ body {
   color: var(--text-primary);
 }
 
+
 body {
   position: relative;
   min-height: 100%;
@@ -61,6 +62,11 @@ input:focus {
   box-shadow: none;
   outline: none;
 }
+
+main_border_bottom  {
+  border-color: var(--mustard);
+}
+
 
 /* *::-webkit-scrollbar {
   width: var(--scrollbar-width);

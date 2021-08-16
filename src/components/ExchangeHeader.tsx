@@ -39,7 +39,7 @@ const ExchangeHeader: FC<ExchangeHeaderProps> = ({ input, output, allowedSlippag
     <div className="flex justify-between mb-4 space-x-3 items-center">
       <div className="grid grid-cols-3 rounded p-3px h-[46px]">
         <NavLink
-          activeClassName="font-bold border-b-2 border-yellow border-opacity-100 rounded-none text-high-emphesis  hover:text-blue"
+          activeClassName="font-bold border-b-2 border-yellow border-opacity-100 rounded-none text-high-emphesis  hover:text-blue main_border_bottom"
           href={{
             pathname: '/swap',
             query: getQuery(input, output),

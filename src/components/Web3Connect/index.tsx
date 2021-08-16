@@ -7,6 +7,7 @@ import styled from 'styled-components'
 import { t } from '@lingui/macro'
 import { useLingui } from '@lingui/react'
 import { useWalletModalToggle } from '../../state/application/hooks'
+import { classNames } from '../../functions'
 
 const NetworkIcon = styled(Activity)`
   width: 16px;
@@ -33,10 +34,9 @@ export default function Web3Connect({ color = 'gray', size = 'sm', className = '
       onClick={toggleWalletModal}
       variant="outlined"
       color={color}
-      className={className + ' bg-yellow-900'}
+      className={color==='blue' ? className + ' bg-gradient-to-br from-yellow' : className}
       size={size}
       {...rest}
-      style={{backgroundColor:'#b97b56'}}
     >
       {i18n._(t`Connect to a wallet`)}
     </Button>
