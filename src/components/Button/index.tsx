@@ -18,6 +18,8 @@ const FILLED = {
   green: 'bg-green bg-opacity-80 w-full rounded text-high-emphesis hover:bg-opacity-100 disabled:bg-opacity-80',
   gradient:
     'w-full text-high-emphesis bg-gradient-to-br from-yellow opacity-80 hover:opacity-100 disabled:bg-opacity-80',
+  max:
+    'bg-transparent opacity-80 hover:opacity-100 bg-gradient-to-br from-yellow to-opaque-yellow text-high-emphesis',
 }
 
 const OUTLINED = {
@@ -48,7 +50,7 @@ const VARIANT = {
   link: LINK,
 }
 
-export type ButtonColor = 'blue' | 'pink' | 'gradient' | 'gray' | 'default' | 'red' | 'green'
+export type ButtonColor = 'blue' | 'pink' | 'gradient' | 'gray' | 'default' | 'red' | 'green' | 'max'
 
 export type ButtonSize = 'xs' | 'sm' | 'lg' | 'default' | 'none'
 
@@ -64,7 +66,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 function Button({
   children,
   className = undefined,
-  color = 'pink',
+  color = 'default',
   size = 'default',
   variant = 'filled',
   ...rest

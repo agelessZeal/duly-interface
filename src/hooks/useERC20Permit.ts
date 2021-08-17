@@ -268,7 +268,7 @@ export function useERC20Permit(
 
 const REMOVE_V2_LIQUIDITY_PERMIT_INFO: PermitInfo = {
   version: '1',
-  name: 'DulySwap LP Token',
+  name: 'eDuly LP',
   type: PermitType.AMOUNT,
 }
 
@@ -276,6 +276,7 @@ export function useV2LiquidityTokenPermit(
   liquidityAmount: CurrencyAmount<Token> | null | undefined,
   spender: string | null | undefined
 ) {
+  console.log('useV2LiquidityTokenPermit:',liquidityAmount, spender, REMOVE_V2_LIQUIDITY_PERMIT_INFO)
   return useERC20Permit(liquidityAmount, spender, REMOVE_V2_LIQUIDITY_PERMIT_INFO)
 }
 

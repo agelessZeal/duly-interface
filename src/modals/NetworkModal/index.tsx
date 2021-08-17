@@ -169,16 +169,16 @@ export default function NetworkModal(): JSX.Element | null {
       <div className="grid grid-flow-row-dense grid-cols-1 gap-5 overflow-y-auto md:grid-cols-2">
         {[
           ChainId.MAINNET,
-          ChainId.MATIC,
-          ChainId.FANTOM,
+          // ChainId.MATIC,
+          // ChainId.FANTOM,
           // ChainId.ARBITRUM,
-          ChainId.OKEX,
-          ChainId.HECO,
-          ChainId.BSC,
-          ChainId.XDAI,
-          ChainId.HARMONY,
-          ChainId.AVALANCHE,
-          ChainId.CELO,
+          // ChainId.OKEX,
+          // ChainId.HECO,
+          // ChainId.BSC,
+          // ChainId.XDAI,
+          // ChainId.HARMONY,
+          // ChainId.AVALANCHE,
+          // ChainId.CELO,
         ].map((key: ChainId, i: number) => {
           if (chainId === key) {
             return (
