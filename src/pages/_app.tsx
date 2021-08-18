@@ -3,6 +3,7 @@ import '../styles/index.css'
 import '@fontsource/dm-sans/index.css'
 import 'react-virtualized/styles.css'
 import 'react-tabs/style/react-tabs.css'
+import 'rc-slider/assets/index.css'
 
 import * as plurals from 'make-plural/plurals'
 
@@ -28,11 +29,16 @@ import { Web3ReactProvider } from '@web3-react/core'
 import dynamic from 'next/dynamic'
 import getLibrary from '../functions/getLibrary'
 import { i18n } from '@lingui/core'
-import { persistStore } from 'redux-persist'
+import { nanoid } from '@reduxjs/toolkit'
+import { remoteLoader } from '@lingui/remote-loader'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
 const Web3ProviderNetwork = dynamic(() => import('../components/Web3ProviderNetwork'), { ssr: false })
+
+// const Web3ReactManager = dynamic(() => import('../components/Web3ReactManager'), { ssr: false })
+
+const sessionId = nanoid()
 
 if (typeof window !== 'undefined' && !!window.ethereum) {
   window.ethereum.autoRefreshOnNetworkChange = false
@@ -48,9 +54,7 @@ function MyApp({
     Provider: FunctionComponent
   }
 }) {
-  const router = useRouter()
-
-  const { pathname, query, locale } = router
+  const { pathname, query, locale } = useRouter()
 
   useEffect(() => {
     ReactGA.initialize(process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS, { testMode: process.env.NODE_ENV === 'development' })
@@ -73,12 +77,26 @@ function MyApp({
 
   useEffect(() => {
     async function load(locale) {
-      const { messages } = await import(`@lingui/loader!./../../locale/${locale}.po`)
-      i18n.loadLocaleData(locale, { plurals: plurals[locale] })
-      i18n.load(locale, messages)
+      i18n.loadLocaleData(locale, { plurals: plurals[locale.split('_')[0]] })
+
+      try {
+        // Load messages from AWS, use q session param to get latest version from cache
+        const resp = await fetch(`https://d3l928w2mi7nub.cloudfront.net/${locale}.json?q=${sessionId}`)
+        const remoteMessages = await resp.json()
+
+        const messages = remoteLoader({ messages: remoteMessages, format: 'minimal' })
+        i18n.load(locale, messages)
+      } catch {
+        // Load fallback messages
+        const { messages } = await import(`@lingui/loader!./../../locale/${locale}.json?raw-lingui`)
+        i18n.load(locale, messages)
+      }
+
       i18n.activate(locale)
     }
+
     load(locale)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [locale])
 
   // Allows for conditionally setting a provider to be hoisted per page
@@ -100,18 +118,18 @@ function MyApp({
           name="viewport"
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
         />
-        <title key="title">DULY</title>
+        <title key="title">SUSHI</title>
 
         <meta
           key="description"
           name="description"
-          content="Be a DeFi Chef with Duly. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform. Welcome home to DeFi"
+          content="Be a DeFi Chef with Sushi. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform. Welcome home to DeFi"
         />
 
-        <meta name="application-name" content="DULY App" />
+        <meta name="application-name" content="SUSHI App" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="apple-mobile-web-app-title" content="DULY App" />
+        <meta name="apple-mobile-web-app-title" content="SUSHI App" />
 
         <meta name="format-detection" content="telephone=no" />
         <meta name="mobile-web-app-capable" content="yes" />
@@ -120,23 +138,23 @@ function MyApp({
         <meta name="theme-color" content="#F338C3" />
 
         <meta key="twitter:card" name="twitter:card" content="app" />
-        <meta key="twitter:title" name="twitter:title" content="DULY App" />
+        <meta key="twitter:title" name="twitter:title" content="SUSHI App" />
         <meta key="twitter:url" name="twitter:url" content="https://app.sushi.com" />
         <meta
           key="twitter:description"
           name="twitter:description"
-          content="Be a DeFi Chef with Duly. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform. Welcome home to DeFi"
+          content="Be a DeFi Chef with Sushi. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform. Welcome home to DeFi"
         />
         <meta key="twitter:image" name="twitter:image" content="https://app.sushi.com/icons/icon-192x192.png" />
-        <meta key="twitter:creator" name="twitter:creator" content="@DulySwap" />
+        <meta key="twitter:creator" name="twitter:creator" content="@SushiSwap" />
         <meta key="og:type" property="og:type" content="website" />
-        <meta key="og:site_name" property="og:site_name" content="DULY App" />
+        <meta key="og:site_name" property="og:site_name" content="SUSHI App" />
         <meta key="og:url" property="og:url" content="https://app.sushi.com" />
         <meta key="og:image" property="og:image" content="https://app.sushi.com/apple-touch-icon.png" />
         <meta
           key="og:description"
           property="og:description"
-          content="Be a DeFi Chef with Duly. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform. Welcome home to DeFi"
+          content="Be a DeFi Chef with Sushi. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform. Welcome home to DeFi"
         />
       </Head>
       <I18nProvider i18n={i18n} forceRenderOnLocaleChange={false}>
@@ -144,22 +162,22 @@ function MyApp({
           <Web3ProviderNetwork getLibrary={getLibrary}>
             <Web3ReactManager>
               <ReduxProvider store={store}>
-              <PersistGate loading={<Dots>loading</Dots>} persistor={persistor}>
-                <>
-                  <ListsUpdater />
-                  <UserUpdater />
-                  <ApplicationUpdater />
-                  <TransactionUpdater />
-                  <MulticallUpdater />
-                </>
-                <Provider>
-                  <Layout>
-                    <Guard>
-                      <Component {...pageProps} />
-                    </Guard>
-                  </Layout>
-                </Provider>
-              </PersistGate>
+                <PersistGate loading={<Dots>loading</Dots>} persistor={persistor}>
+                  <>
+                    <ListsUpdater />
+                    <UserUpdater />
+                    <ApplicationUpdater />
+                    <TransactionUpdater />
+                    <MulticallUpdater />
+                  </>
+                  <Provider>
+                    <Layout>
+                      <Guard>
+                        <Component {...pageProps} />
+                      </Guard>
+                    </Layout>
+                  </Provider>
+                </PersistGate>
               </ReduxProvider>
             </Web3ReactManager>
           </Web3ProviderNetwork>

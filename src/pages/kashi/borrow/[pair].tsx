@@ -51,11 +51,11 @@ function Pair() {
   return (
     <>
       <Head>
-        <title>{i18n._(t`Borrow ${pair?.asset?.symbol}-${pair?.collateral?.symbol}`)} | Duly</title>
+        <title>{i18n._(t`Borrow ${pair?.asset?.symbol}-${pair?.collateral?.symbol}`)} | Sushi</title>
         <meta
           key="description"
           name="description"
-          content={`Borrow ${pair?.asset?.symbol} against ${pair?.collateral?.symbol} collateral on Kashi by Duly`}
+          content={`Borrow ${pair?.asset?.symbol} against ${pair?.collateral?.symbol} collateral on Kashi by Sushi`}
         />
       </Head>
       <Card
@@ -229,7 +229,7 @@ const PairLayout = ({ children }) => {
             </div>
             <div className="flex justify-between">
               <div className="text-lg text-secondary">{i18n._(t`${pair?.collateral.tokenInfo.symbol} Strategy`)}</div>
-              <div className="text-lg text-high-emphesis">
+              <div className="flex flex-row text-lg text-high-emphesis">
                 {i18n._(t`None`)}
                 <QuestionHelper
                   text={i18n._(
@@ -238,7 +238,7 @@ const PairLayout = ({ children }) => {
                 />
               </div>
             </div>
-            {pair && pair.oracle.name === 'DulySwap' && (
+            {pair && pair.oracle.name === 'SushiSwap' && (
               <>
                 <div className="flex justify-between pt-3">
                   <div className="text-xl text-high-emphesis">{i18n._(t`SLP`)}</div>

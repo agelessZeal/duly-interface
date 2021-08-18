@@ -12,19 +12,19 @@ import NavLink from '../NavLink'
 const items = (i18n: I18n) => [
   {
     name: i18n._(t`Docs`),
-    description: i18n._(t`Documentation for users of Duly.`),
+    description: i18n._(t`Documentation for users of Sushi.`),
     href: 'https://docs.sushi.com',
     external: true,
   },
   {
     name: i18n._(t`Dev`),
-    description: i18n._(t`Documentation for developers of Duly.`),
+    description: i18n._(t`Documentation for developers of Sushi.`),
     href: 'https://dev.sushi.com',
     external: true,
   },
   {
     name: i18n._(t`Open Source`),
-    description: i18n._(t`Duly is a supporter of Open Source.`),
+    description: i18n._(t`Sushi is a supporter of Open Source.`),
     href: 'https://github.com/sushiswap',
     external: true,
   },
@@ -51,8 +51,6 @@ const items = (i18n: I18n) => [
 export default function Menu() {
   const { i18n } = useLingui()
   const solutions = items(i18n)
-
-  return null;
 
   return (
     <Popover className="relative ml-auto md:m-0">

@@ -3,7 +3,7 @@ import { useMultipleContractSingleData, useSingleContractMultipleData } from '..
 
 import ERC20_ABI from '../../constants/abis/erc20.json'
 import { Interface } from '@ethersproject/abi'
-import { DULY } from './../../constants'
+import { SUSHI } from './../../constants'
 import { isAddress } from '../../functions/validate'
 import { useActiveWeb3React } from '../../hooks/useActiveWeb3React'
 import { useAllTokens } from '../../hooks/Tokens'
@@ -98,7 +98,9 @@ export function useTokenBalances(
   address?: string,
   tokens?: (Token | undefined)[]
 ): { [tokenAddress: string]: CurrencyAmount<Token> | undefined } {
-  return useTokenBalancesWithLoadingIndicator(address, tokens)[0]
+  const balances = useTokenBalancesWithLoadingIndicator(address, tokens)[0]
+  const memoizedBalances = useMemo(() => JSON.stringify(balances), [balances])
+  return useMemo(() => balances, [memoizedBalances])
 }
 
 // get the balance for a single token/account combo

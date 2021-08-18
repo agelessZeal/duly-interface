@@ -53,7 +53,7 @@ export const getOrCreateStore = (preloadedState = undefined) => {
 
   // For SSG and SSR always create a new store
   if (typeof window === 'undefined') return _store
-  
+
   // Create the store once in the client
   if (!store) store = _store
 
@@ -70,13 +70,7 @@ store = getOrCreateStore()
 export type AppState = ReturnType<typeof store.getState>
 
 export type AppDispatch = typeof store.dispatch
-
-export type AppThunk<ReturnType = void> = ThunkAction<
-  ReturnType,
-  AppState,
-  unknown,
-  Action<string>
->
+export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, AppState, unknown, Action<string>>
 
 export default store
 

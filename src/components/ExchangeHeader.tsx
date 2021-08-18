@@ -37,20 +37,20 @@ const ExchangeHeader: FC<ExchangeHeaderProps> = ({ input, output, allowedSlippag
 
   return (
     <div className="flex justify-between mb-4 space-x-3 items-center">
-      <div className="grid grid-cols-3 rounded p-3px h-[46px]">
+      <div className="grid grid-cols-3 rounded p-3px bg-dark-800 h-[46px]">
         <NavLink
-          activeClassName="font-bold border-b-2 border-yellow border-opacity-100 rounded-none text-high-emphesis  hover:text-blue main_border_bottom"
+          activeClassName="font-bold border rounded text-high-emphesis border-dark-800 bg-gradient-to-r from-opaque-blue to-opaque-pink hover:from-blue hover:to-pink"
           href={{
             pathname: '/swap',
             query: getQuery(input, output),
           }}
         >
-          <a className="flex items-center justify-center px-4 text-base font-medium text-center border-b-2 rounded-none text-secondary hover:text-high-emphesis">
+          <a className="flex items-center justify-center px-4 text-base font-medium text-center rounded-md text-secondary hover:text-high-emphesis">
             {i18n._(t`Swap`)}
           </a>
         </NavLink>
-        {/* <NavLink
-          activeClassName="font-bold border rounded text-high-emphesis border-dark-800 bg-gradient-to-br from-opaque-blue to-opaque-pink hover:from-yellow hover:to-pink"
+        <NavLink
+          activeClassName="font-bold border rounded text-high-emphesis border-dark-800 bg-gradient-to-r from-opaque-blue to-opaque-pink hover:from-blue hover:to-pink"
           href={{
             pathname: '/limit-order',
             query: getQuery(input, output),
@@ -59,14 +59,14 @@ const ExchangeHeader: FC<ExchangeHeaderProps> = ({ input, output, allowedSlippag
           <a className="flex items-center justify-center px-4 text-base font-medium text-center rounded-md text-secondary hover:text-high-emphesis">
             {i18n._(t`Limit`)}
           </a>
-        </NavLink> */}
+        </NavLink>
         <NavLink
-          activeClassName="font-bold rounded-none text-high-emphesis border-b-2 border-yellow border-opacity-100 rounded-none text-high-emphesis  hover:text-blue"
+          activeClassName="font-bold border rounded text-high-emphesis border-dark-800 bg-gradient-to-r from-opaque-blue to-opaque-pink hover:from-blue hover:to-pink"
           href={`/${!isRemove ? 'add' : 'remove'}${input ? `/${currencyId(input)}` : ''}${
             output ? `/${currencyId(output)}` : ''
           }`}
         >
-          <a className="flex items-center justify-center px-4 text-base font-medium text-center  border-b-2  rounded-none text-secondary hover:text-high-emphesis">
+          <a className="flex items-center justify-center px-4 text-base font-medium text-center rounded-md text-secondary hover:text-high-emphesis">
             {i18n._(t`Liquidity`)}
           </a>
         </NavLink>

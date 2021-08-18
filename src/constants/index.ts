@@ -1,13 +1,13 @@
 import { ChainId, JSBI, Percent } from '@sushiswap/sdk'
-import { binance, fortmatic, injected, portis, torus, walletconnect, walletlink } from '../connectors'
 
 import { AbstractConnector } from '@web3-react/abstract-connector'
-import { BigNumber } from 'ethers'
+import { BigNumber } from '@ethersproject/bignumber'
+import { injected } from '../connectors'
 
 export const RPC = {
-  [ChainId.MAINNET]: 'https://eth-mainnet.alchemyapi.io/v2/ltE1K7mQs9E05usI4J6IO706waF9jYi_',
+  [ChainId.MAINNET]: 'https://eth-mainnet.alchemyapi.io/v2/q1gSNoSMEzJms47Qn93f9-9Xg5clkmEC',
   [ChainId.ROPSTEN]: 'https://eth-ropsten.alchemyapi.io/v2/cidKix2Xr-snU3f6f6Zjq_rYdalKKHmW',
-  [ChainId.RINKEBY]: 'https://eth-rinkeby.alchemyapi.io/v2/57WF1sNPcsnDzFsbg3Kv4QNMn6ZLT8q7',
+  [ChainId.RINKEBY]: 'https://eth-rinkeby.alchemyapi.io/v2/XVLwDlhGP6ApBXFz_lfv0aZ6VmurWhYD',
   [ChainId.GÖRLI]: 'https://eth-goerli.alchemyapi.io/v2/Dkk5d02QjttYEoGmhZnJG37rKt8Yl3Im',
   [ChainId.KOVAN]: 'https://eth-kovan.alchemyapi.io/v2/6OVAa_B_rypWWl9HqtiYK26IRxXiYqER',
   [ChainId.FANTOM]: 'https://rpcapi.fantom.network',
@@ -29,6 +29,7 @@ export const RPC = {
   [ChainId.OKEX]: 'https://exchainrpc.okex.org',
   [ChainId.OKEX_TESTNET]: 'https://exchaintestrpc.okex.org',
   [ChainId.ARBITRUM]: 'https://arb1.arbitrum.io/rpc',
+  [ChainId.PALM]: 'https://palm-mainnet.infura.io/v3/da5fbfafcca14b109e2665290681e267',
 }
 
 export const POOL_DENY = ['14', '29', '45', '30']
@@ -53,7 +54,11 @@ export const ARCHER_GAS_URI: { [chainId in ChainId]?: string } = {
 export const MERKLE_ROOT =
   //'https://raw.githubusercontent.com/sushiswap/sushi-vesting/master/merkle/week-13/merkle-10959148-11550728.json'
   //'https://raw.githubusercontent.com/sushiswap/sushi-vesting/master/merkle/week-14/merkle-10959148-11596364.json'
-  'https://raw.githubusercontent.com/sushiswap/sushi-vesting/master/merkle/week-15/merkle-10959148-11641996.json'
+  //'https://raw.githubusercontent.com/sushiswap/sushi-vesting/master/merkle/week-15/merkle-10959148-11641996.json'
+  //'https://raw.githubusercontent.com/sushiswap/sushi-vesting/master/merkle/week-16/merkle-10959148-11687577.json'
+  //'https://raw.githubusercontent.com/sushiswap/sushi-vesting/master/merkle/week-17/merkle-10959148-11733182.json'
+  //'https://raw.githubusercontent.com/sushiswap/sushi-vesting/master/merkle/week-18/merkle-10959148-11778625.json'
+  'https://raw.githubusercontent.com/sushiswap/sushi-vesting/master/merkle/week-19/merkle-10959148-11824101.json'
 
 // /**
 //  * Some tokens can only be swapped via certain pairs, so we override the list of bases that are considered for these
@@ -107,10 +112,33 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     color: '#E8831D',
   },
   WALLET_CONNECT: {
-    connector: walletconnect,
+    connector: async () => {
+      const WalletConnectConnector = (await import('@web3-react/walletconnect-connector')).WalletConnectConnector
+      return new WalletConnectConnector({
+        rpc: RPC,
+        bridge: 'https://bridge.walletconnect.org',
+        qrcode: true,
+        pollingInterval: 15000,
+      })
+    },
     name: 'WalletConnect',
     iconName: 'wallet-connect.svg',
     description: 'Connect to Trust Wallet, Rainbow Wallet and more...',
+    href: null,
+    color: '#4196FC',
+    mobile: true,
+  },
+  KEYSTONE: {
+    connector: async () => {
+      const KeystoneConnector = (await import('@keystonehq/keystone-connector')).KeystoneConnector
+      return new KeystoneConnector({
+        chainId: 1,
+        url: RPC[ChainId.MAINNET],
+      })
+    },
+    name: 'Keystone',
+    iconName: 'keystone.png',
+    description: 'Connect to Keystone hardware wallet.',
     href: null,
     color: '#4196FC',
     mobile: true,
@@ -121,7 +149,7 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
       return new LatticeConnector({
         chainId: 1,
         url: RPC[ChainId.MAINNET],
-        appName: 'DulySwap',
+        appName: 'SushiSwap',
       })
     },
     name: 'Lattice',
@@ -132,7 +160,14 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     mobile: true,
   },
   WALLET_LINK: {
-    connector: walletlink,
+    connector: async () => {
+      const WalletLinkConnector = (await import('@web3-react/walletlink-connector')).WalletLinkConnector
+      return new WalletLinkConnector({
+        url: RPC[ChainId.MAINNET],
+        appName: 'SushiSwap',
+        appLogoUrl: 'https://raw.githubusercontent.com/sushiswap/art/master/sushi/logo-256x256.png',
+      })
+    },
     name: 'Coinbase Wallet',
     iconName: 'coinbase.svg',
     description: 'Use Coinbase Wallet app on mobile device',
@@ -149,7 +184,13 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     mobileOnly: true,
   },
   FORTMATIC: {
-    connector: fortmatic,
+    connector: async () => {
+      const FortmaticConnector = (await import('@web3-react/fortmatic-connector')).FortmaticConnector
+      return new FortmaticConnector({
+        apiKey: process.env.NEXT_PUBLIC_FORTMATIC_API_KEY ?? '',
+        chainId: 1,
+      })
+    },
     name: 'Fortmatic',
     iconName: 'fortmatic.png',
     description: 'Login using Fortmatic hosted wallet',
@@ -158,7 +199,13 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     mobile: true,
   },
   Portis: {
-    connector: portis,
+    connector: async () => {
+      const PortisConnector = (await import('@web3-react/portis-connector')).PortisConnector
+      return new PortisConnector({
+        dAppId: process.env.NEXT_PUBLIC_PORTIS_ID ?? '',
+        networks: [1],
+      })
+    },
     name: 'Portis',
     iconName: 'portis.png',
     description: 'Login using Portis hosted wallet',
@@ -167,7 +214,12 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     mobile: true,
   },
   Torus: {
-    connector: torus,
+    connector: async () => {
+      const TorusConnector = (await import('@web3-react/torus-connector')).TorusConnector
+      return new TorusConnector({
+        chainId: 1,
+      })
+    },
     name: 'Torus',
     iconName: 'torus.png',
     description: 'Login using Torus hosted wallet',
@@ -176,7 +228,12 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     mobile: true,
   },
   Binance: {
-    connector: binance,
+    connector: async () => {
+      const BscConnector = (await import('@binance-chain/bsc-connector')).BscConnector
+      return new BscConnector({
+        supportedChainIds: [56],
+      })
+    },
     name: 'Binance',
     iconName: 'bsc.jpg',
     description: 'Login using Binance hosted wallet',
@@ -269,5 +326,4 @@ export const EIP_1559_ACTIVATION_BLOCK: { [chainId in ChainId]?: number } = {
 }
 
 export * from './routing'
-export * from './addresses'
 export * from './tokens'

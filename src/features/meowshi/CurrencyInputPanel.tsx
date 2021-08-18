@@ -1,6 +1,6 @@
 import { Field, MeowshiState } from '../../pages/tools/meowshi'
 import React, { FC } from 'react'
-import { DULY, XSUSHI } from '../../constants'
+import { SUSHI, XSUSHI } from '../../constants'
 
 import { ChainId } from '@sushiswap/sdk'
 import Image from 'next/image'
@@ -37,13 +37,13 @@ const CurrencyInputPanel: FC<CurrencyInputPanelProps> = ({ field, meowshiState, 
             <div className="flex gap-4 items-center">
               <Image
                 src={
-                  currency === DULY[ChainId.MAINNET]
+                  currency === SUSHI[ChainId.MAINNET]
                     ? '/images/tokens/sushi-square.jpg'
                     : currency === XSUSHI
                     ? '/images/tokens/xsushi-square.jpg'
                     : '/images/tokens/nyan-square.jpg'
                 }
-                alt="DULY"
+                alt="SUSHI"
                 width="62px"
                 height="62px"
                 objectFit="contain"
@@ -53,13 +53,13 @@ const CurrencyInputPanel: FC<CurrencyInputPanelProps> = ({ field, meowshiState, 
                 <Typography variant="h3" className="text-high-emphesis leading-6" weight={700}>
                   {currency?.symbol}
                 </Typography>
-                {(currency === DULY[ChainId.MAINNET] || currency === XSUSHI) && (
+                {(currency === SUSHI[ChainId.MAINNET] || currency === XSUSHI) && (
                   <Typography
                     variant="xs"
                     className="underline text-blue cursor-pointer"
-                    onClick={() => setCurrency(currency === XSUSHI ? DULY[ChainId.MAINNET] : XSUSHI, field)}
+                    onClick={() => setCurrency(currency === XSUSHI ? SUSHI[ChainId.MAINNET] : XSUSHI, field)}
                   >
-                    {currencies[field] === DULY[ChainId.MAINNET] ? i18n._(t`Use xSUSHI`) : i18n._(t`Use DULY`)}
+                    {currencies[field] === SUSHI[ChainId.MAINNET] ? i18n._(t`Use xSUSHI`) : i18n._(t`Use SUSHI`)}
                   </Typography>
                 )}
               </div>

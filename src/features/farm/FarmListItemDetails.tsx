@@ -1,5 +1,5 @@
 import { ApprovalState, useApproveCallback } from '../../hooks/useApproveCallback'
-import { ChainId, MASTERCHEF_ADDRESS, Token, ZERO } from '@sushiswap/sdk'
+import { ChainId, MASTERCHEF_ADDRESS, MASTERCHEF_V2_ADDRESS, MINICHEF_ADDRESS, Token, ZERO } from '@sushiswap/sdk'
 import { Chef, PairType } from './enum'
 import { Disclosure, Transition } from '@headlessui/react'
 import React, { useState } from 'react'
@@ -7,8 +7,6 @@ import { usePendingSushi, useUserInfo } from './hooks'
 
 import Button from '../../components/Button'
 import Dots from '../../components/Dots'
-import { MASTERCHEF_V2_ADDRESS } from '../../constants'
-import { MINICHEF_ADDRESS } from '../../constants/addresses'
 import { Input as NumericalInput } from '../../components/NumericalInput'
 import { formatNumber } from '../../functions'
 import { getAddress } from '@ethersproject/address'
@@ -121,7 +119,7 @@ const FarmListItem = ({ farm }) => {
                     const tx = await deposit(farm.id, depositValue.toBigNumber(liquidityToken?.decimals))
 
                     addTransaction(tx, {
-                      summary: `Deposit ${farm.pair.name}`,
+                      summary: `Deposit ${farm.pair.token0.name}/${farm.pair.token1.name}`,
                     })
                   } catch (error) {
                     console.error(error)
@@ -173,7 +171,7 @@ const FarmListItem = ({ farm }) => {
                   // KMP decimals depend on asset, SLP is always 18
                   const tx = await withdraw(farm.id, withdrawValue.toBigNumber(liquidityToken?.decimals))
                   addTransaction(tx, {
-                    summary: `Withdraw ${farm.pair.name}`,
+                    summary: `Withdraw ${farm.pair.token0.name}/${farm.pair.token1.name}`,
                   })
                 } catch (error) {
                   console.error(error)
@@ -195,7 +193,7 @@ const FarmListItem = ({ farm }) => {
                 try {
                   const tx = await harvest(farm.id)
                   addTransaction(tx, {
-                    summary: `Harvest ${farm.pair.name}`,
+                    summary: i18n._(t`Harvest ${farm.pair.token0.name}/${farm.pair.token1.name}`),
                   })
                 } catch (error) {
                   console.error(error)
@@ -203,7 +201,7 @@ const FarmListItem = ({ farm }) => {
                 setPendingTx(false)
               }}
             >
-              {i18n._(t`Harvest ${formatNumber(pendingSushi.toFixed(18))} DULY ${
+              {i18n._(t`Harvest ${formatNumber(pendingSushi.toFixed(18))} SUSHI ${
                 farm.rewards.length > 1 ? `& ${formatNumber(reward)} ${farm.rewards[1].token}` : null
               }
                 `)}

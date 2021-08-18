@@ -1,5 +1,5 @@
 import { Currency, CurrencyAmount, JSBI, Percent, Token, TradeType, Trade as V2Trade } from '@sushiswap/sdk'
-import { DAI, DULY, USDC } from '../constants/tokens'
+import { DAI, SUSHI, USDC } from '../constants/tokens'
 import { useMemo, useState } from 'react'
 
 import { splitSignature } from 'ethers/lib/utils'
@@ -37,7 +37,7 @@ const PERMITTABLE_TOKENS: {
       name: 'Dai Stablecoin',
       version: '1',
     },
-    [DULY[1].address]: { type: PermitType.AMOUNT, name: 'DulySwap' },
+    [SUSHI[1].address]: { type: PermitType.AMOUNT, name: 'SushiSwap' },
   },
   [4]: {
     ['0xc7AD46e0b8a400Bb3C915120d284AafbA8fc4735']: {
@@ -45,10 +45,10 @@ const PERMITTABLE_TOKENS: {
       name: 'Dai Stablecoin',
       version: '1',
     },
-    [DULY[4].address]: { type: PermitType.AMOUNT, name: 'DulySwap' },
+    [SUSHI[4].address]: { type: PermitType.AMOUNT, name: 'SushiSwap' },
   },
   [3]: {
-    [DULY[3].address]: { type: PermitType.AMOUNT, name: 'DulySwap' },
+    [SUSHI[3].address]: { type: PermitType.AMOUNT, name: 'SushiSwap' },
     ['0x07865c6E87B9F70255377e024ace6630C1Eaa37F']: {
       type: PermitType.AMOUNT,
       name: 'USD Coin',
@@ -56,10 +56,10 @@ const PERMITTABLE_TOKENS: {
     },
   },
   [5]: {
-    [DULY[5].address]: { type: PermitType.AMOUNT, name: 'DulySwap' },
+    [SUSHI[5].address]: { type: PermitType.AMOUNT, name: 'SushiSwap' },
   },
   [42]: {
-    [DULY[42].address]: { type: PermitType.AMOUNT, name: 'DulySwap' },
+    [SUSHI[42].address]: { type: PermitType.AMOUNT, name: 'SushiSwap' },
   },
 }
 
@@ -268,7 +268,7 @@ export function useERC20Permit(
 
 const REMOVE_V2_LIQUIDITY_PERMIT_INFO: PermitInfo = {
   version: '1',
-  name: 'eDuly LP',
+  name: 'SushiSwap LP Token',
   type: PermitType.AMOUNT,
 }
 
@@ -276,7 +276,6 @@ export function useV2LiquidityTokenPermit(
   liquidityAmount: CurrencyAmount<Token> | null | undefined,
   spender: string | null | undefined
 ) {
-  console.log('useV2LiquidityTokenPermit:',liquidityAmount, spender, REMOVE_V2_LIQUIDITY_PERMIT_INFO)
   return useERC20Permit(liquidityAmount, spender, REMOVE_V2_LIQUIDITY_PERMIT_INFO)
 }
 

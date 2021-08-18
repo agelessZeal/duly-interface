@@ -11,6 +11,7 @@ import {
   CVXCRV,
   DAI,
   DOUGH,
+  DPI,
   DUCK,
   ETH2X_FLI,
   FANTOM,
@@ -33,8 +34,7 @@ import {
   RENBTC,
   RUNE,
   STETH,
-  DULY,
-  TRIBE,
+  SUSHI,
   UMA,
   USDC,
   USDP,
@@ -156,8 +156,7 @@ export const ADDITIONAL_BASES: {
     '0xF16E4d813f4DcfDe4c5b44f305c908742De84eF0': [ETH2X_FLI],
     '0xe379a60A8FC7C9DD161887fFADF3054790576c8D': [XSUSHI], // XSUSHI 25 Call [30 June 2021]
     '0xB46F57e7Ce3a284d74b70447Ef9352B5E5Df8963': [UMA], // UMA 25 Call [30 June 2021]
-    [FEI.address]: [TRIBE],
-    [TRIBE.address]: [FEI],
+    [FEI.address]: [DPI],
     [FRAX.address]: [FXS],
     [FXS.address]: [FRAX],
     [WBTC.address]: [RENBTC],
@@ -183,7 +182,8 @@ export const ADDITIONAL_BASES: {
     [MATIC.FRAX.address]: [MATIC.FXS],
     [MATIC.FXS.address]: [MATIC.FRAX],
     [MATIC.DRAX.address]: [MATIC.DMAGIC],
-    [MATIC.DMAGIC.address]: [MATIC.DRAX],
+    [MATIC.AXMATIC.address]: [MATIC.DMAGIC],
+    //[MATIC.DMAGIC.address]: [MATIC.DRAX, MATIC.AXMATIC],
   },
 }
 
@@ -198,7 +198,7 @@ export const CUSTOM_BASES: {
     [AMPL.address]: [DAI, WNATIVE[ChainId.MAINNET]],
   },
   [ChainId.MATIC]: {
-    [MATIC.TEL.address]: [MATIC.DULY, MATIC.AAVE],
+    [MATIC.TEL.address]: [MATIC.SUSHI, MATIC.AAVE],
   },
 }
 
@@ -296,7 +296,7 @@ export const PINNED_PAIRS: {
   readonly [chainId in ChainId]?: [Token, Token][]
 } = {
   [ChainId.MAINNET]: [
-    [DULY[ChainId.MAINNET] as Token, WNATIVE[ChainId.MAINNET]],
+    [SUSHI[ChainId.MAINNET] as Token, WNATIVE[ChainId.MAINNET]],
     [
       new Token(ChainId.MAINNET, '0x5d3a536E4D6DbD6114cc1Ead35777bAB948E3643', 8, 'cDAI', 'Compound Dai'),
       new Token(ChainId.MAINNET, '0x39AA39c021dfbaE8faC545936693aC917d5E7563', 8, 'cUSDC', 'Compound USD Coin'),

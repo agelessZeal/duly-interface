@@ -82,7 +82,7 @@ export function getUSDString(amount: BigNumberish, token: any): string {
   return BigNumber.from(amount)
     .mul(token.usd)
     .div(e10(token?.decimals ? token.decimals : token.tokenInfo.decimals))
-    .toFixed(getCurrency(token.tokenInfo.chainId).decimals)
+    .toFixed(getCurrency(token?.chainId ? token.chainId : token.tokenInfo.chainId).decimals)
 }
 
 export function easyAmount(
@@ -103,4 +103,13 @@ export function takeFee(amount: BigNumber): BigNumber {
 
 export function addBorrowFee(amount: BigNumber): BigNumber {
   return amount.mul(BigNumber.from(10005)).div(BigNumber.from(10000))
+}
+
+export function getFraction({
+  totalAssetBase,
+  totalAssetElastic,
+  totalBorrowElastic,
+  token0: { totalSupplyBase, totalSupplyElastic },
+}) {
+  return totalAssetBase / (Number(totalAssetElastic) + (totalBorrowElastic * totalSupplyBase) / totalSupplyElastic)
 }

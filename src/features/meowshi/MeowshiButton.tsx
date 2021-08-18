@@ -1,7 +1,7 @@
 import { ApprovalState, useActiveWeb3React } from '../../hooks'
 import { Field, MeowshiState } from '../../pages/tools/meowshi'
 import React, { FC, useMemo, useState } from 'react'
-import { DULY, XSUSHI } from '../../constants'
+import { SUSHI, XSUSHI } from '../../constants'
 import TransactionConfirmationModal, { ConfirmationModalContent } from '../../modals/TransactionConfirmationModal'
 
 import Button from '../../components/Button'
@@ -27,10 +27,10 @@ const MeowshiButton: FC<MeowshiButtonProps> = ({ meowshiState }) => {
     open: false,
   })
   const { account, chainId } = useActiveWeb3React()
-  const sushiBalance = useTokenBalance(account, DULY[ChainId.MAINNET])
+  const sushiBalance = useTokenBalance(account, SUSHI[ChainId.MAINNET])
   const xSushiBalance = useTokenBalance(account, XSUSHI)
   const { approvalState, approve, meow, unmeow, meowSushi, unmeowSushi } = useMeowshi(
-    currencies[Field.INPUT] === DULY[ChainId.MAINNET]
+    currencies[Field.INPUT] === SUSHI[ChainId.MAINNET]
   )
   const balance = useTokenBalance(account, currencies[Field.INPUT])
   const parsedInputAmount = tryParseAmount(fields[Field.INPUT], currencies[Field.INPUT])
@@ -52,7 +52,7 @@ const MeowshiButton: FC<MeowshiButtonProps> = ({ meowshiState }) => {
 
     let tx
     if (doMeow) {
-      if (currencies[Field.INPUT]?.symbol === 'DULY') {
+      if (currencies[Field.INPUT]?.symbol === 'SUSHI') {
         tx = await meowSushi({
           value: ethers.utils.parseUnits(fields[Field.INPUT], sushiBalance.currency.decimals),
           decimals: sushiBalance.currency.decimals,
@@ -65,7 +65,7 @@ const MeowshiButton: FC<MeowshiButtonProps> = ({ meowshiState }) => {
         })
       }
     } else {
-      if (currencies[Field.OUTPUT]?.symbol === 'DULY') {
+      if (currencies[Field.OUTPUT]?.symbol === 'SUSHI') {
         tx = await unmeowSushi({
           value: ethers.utils.parseUnits(fields[Field.INPUT], sushiBalance.currency.decimals),
           decimals: xSushiBalance.currency.decimals,

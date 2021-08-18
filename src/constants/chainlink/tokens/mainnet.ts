@@ -402,7 +402,7 @@ const MAINNET_CHAINLINK_TOKENS = [
     decimals: 18,
   },
   {
-    symbol: 'DULY',
+    symbol: 'SUSHI',
     name: 'SushiToken',
     address: '0x6B3595068778DD592e39A122f4f5a5cF09C90fE2',
     decimals: 18,

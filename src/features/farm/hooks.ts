@@ -1,11 +1,18 @@
-import { ChainId, CurrencyAmount, JSBI, MASTERCHEF_ADDRESS } from '@sushiswap/sdk'
+import {
+  ChainId,
+  CurrencyAmount,
+  JSBI,
+  MASTERCHEF_ADDRESS,
+  MASTERCHEF_V2_ADDRESS,
+  MINICHEF_ADDRESS,
+} from '@sushiswap/sdk'
 import { Chef, PairType } from './enum'
-import { MASTERCHEF_V2_ADDRESS, MINICHEF_ADDRESS, DULY } from '../../constants'
 import { NEVER_RELOAD, useSingleCallResult, useSingleContractMultipleData } from '../../state/multicall/hooks'
 import { useCallback, useMemo } from 'react'
-import { useMasterChefContract, useMasterChefV2Contract, useMiniChefContract } from '../../hooks'
+import { useMasterChefContract, useMasterChefV2Contract, useMiniChefContract } from '../../hooks/useContract'
 
 import { Contract } from '@ethersproject/contracts'
+import { SUSHI } from '../../constants'
 import { Zero } from '@ethersproject/constants'
 import concat from 'lodash/concat'
 import { useActiveWeb3React } from '../../hooks/useActiveWeb3React'
@@ -87,7 +94,7 @@ export function usePendingSushi(farm) {
 
   const amount = value ? JSBI.BigInt(value.toString()) : undefined
 
-  return amount ? CurrencyAmount.fromRawAmount(DULY[chainId], amount) : undefined
+  return amount ? CurrencyAmount.fromRawAmount(SUSHI[chainId], amount) : undefined
 }
 
 export function usePendingToken(farm, contract) {
@@ -109,8 +116,8 @@ export function usePendingToken(farm, contract) {
   return useMemo(() => pendingTokens, [pendingTokens])
 }
 
-export function useChefPositions(contract?: Contract | null, rewarder?: Contract | null) {
-  const { account, chainId } = useActiveWeb3React()
+export function useChefPositions(contract?: Contract | null, rewarder?: Contract | null, chainId = undefined) {
+  const { account } = useActiveWeb3React()
 
   const numberOfPools = useSingleCallResult(contract ? contract : null, 'poolLength', undefined, NEVER_RELOAD)
     ?.result?.[0]
@@ -160,11 +167,11 @@ export function useChefPositions(contract?: Contract | null, rewarder?: Contract
   }, [args, getChef, pendingSushi, userInfo])
 }
 
-export function usePositions() {
+export function usePositions(chainId = undefined) {
   const [masterChefV1Positions, masterChefV2Positions, miniChefPositions] = [
-    useChefPositions(useMasterChefContract()),
-    useChefPositions(useMasterChefV2Contract()),
-    useChefPositions(useMiniChefContract()),
+    useChefPositions(useMasterChefContract(), undefined, chainId),
+    useChefPositions(useMasterChefV2Contract(), undefined, chainId),
+    useChefPositions(useMiniChefContract(), undefined, chainId),
   ]
   return concat(masterChefV1Positions, masterChefV2Positions, miniChefPositions)
 }

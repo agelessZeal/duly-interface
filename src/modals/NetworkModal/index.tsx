@@ -149,6 +149,17 @@ export const SUPPORTED_NETWORKS: {
     rpcUrls: ['https://forno.celo.org'],
     blockExplorerUrls: ['https://explorer.celo.org'],
   },
+  [ChainId.PALM]: {
+    chainId: '0x2A15C308D',
+    chainName: 'Palm',
+    nativeCurrency: {
+      name: 'Palm',
+      symbol: 'PALM',
+      decimals: 18,
+    },
+    rpcUrls: ['https://palm-mainnet.infura.io/v3/da5fbfafcca14b109e2665290681e267'],
+    blockExplorerUrls: ['https://explorer.palm.io'],
+  },
 }
 
 export default function NetworkModal(): JSX.Element | null {
@@ -162,27 +173,28 @@ export default function NetworkModal(): JSX.Element | null {
     <Modal isOpen={networkModalOpen} onDismiss={toggleNetworkModal} maxWidth={672}>
       <ModalHeader onClose={toggleNetworkModal} title="Select a Network" />
       <div className="mb-6 text-lg text-primary">
-        You are currently browsing <span className="font-bold text-pink">DULY</span>
+        You are currently browsing <span className="font-bold text-pink">SUSHI</span>
         <br /> on the <span className="font-bold text-blue">{NETWORK_LABEL[chainId]}</span> network
       </div>
 
       <div className="grid grid-flow-row-dense grid-cols-1 gap-5 overflow-y-auto md:grid-cols-2">
         {[
           ChainId.MAINNET,
-          // ChainId.MATIC,
-          // ChainId.FANTOM,
+          ChainId.MATIC,
+          ChainId.FANTOM,
           // ChainId.ARBITRUM,
-          // ChainId.OKEX,
-          // ChainId.HECO,
-          // ChainId.BSC,
-          // ChainId.XDAI,
-          // ChainId.HARMONY,
-          // ChainId.AVALANCHE,
-          // ChainId.CELO,
+          ChainId.OKEX,
+          ChainId.HECO,
+          ChainId.BSC,
+          ChainId.XDAI,
+          ChainId.HARMONY,
+          ChainId.AVALANCHE,
+          ChainId.CELO,
+          ChainId.PALM,
         ].map((key: ChainId, i: number) => {
           if (chainId === key) {
             return (
-              <button key={i} className="w-full col-span-1 p-px rounded bg-gradient-to-br from-yellow to-pink">
+              <button key={i} className="w-full col-span-1 p-px rounded bg-gradient-to-r from-blue to-pink">
                 <div className="flex items-center w-full h-full p-3 space-x-3 rounded bg-dark-1000">
                   <Image
                     src={NETWORK_ICON[key]}

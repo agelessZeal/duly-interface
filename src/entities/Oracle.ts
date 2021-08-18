@@ -1,13 +1,15 @@
 import {
   CHAINLINK_ORACLE_ADDRESS,
+  ChainId,
   SUSHISWAP_TWAP_0_ORACLE_ADDRESS,
   SUSHISWAP_TWAP_1_ORACLE_ADDRESS,
-} from '../constants/kashi'
-import { ChainId, Token } from '@sushiswap/sdk'
+  Token,
+} from '@sushiswap/sdk'
 
+import { AddressZero } from '@ethersproject/constants'
 import { CHAINLINK_MAPPING } from '../constants/chainlink'
+import { defaultAbiCoder } from '@ethersproject/abi'
 import { e10 } from '../functions/math'
-import { ethers } from 'ethers'
 
 export interface Oracle {
   address: string
@@ -27,7 +29,7 @@ export abstract class AbstractOracle implements Oracle {
   chainId = ChainId.MAINNET
   pair: any
   tokens: Token[]
-  valid
+  valid = false
 
   constructor(pair: any, chainId, tokens?: Token[]) {
     this.address = pair.oracle
@@ -35,21 +37,20 @@ export abstract class AbstractOracle implements Oracle {
     this.pair = pair
     this.chainId = chainId
     this.tokens = tokens
-    this.valid = false
   }
 }
 
 export class SushiSwapTWAP0Oracle extends AbstractOracle {
   constructor(pair: any, chainId: ChainId, tokens?: Token[]) {
     super(pair, chainId, tokens)
-    this.name = 'DulySwap'
+    this.name = 'SushiSwap'
   }
 }
 
 export class SushiSwapTWAP1Oracle extends AbstractOracle {
   constructor(pair: any, chainId: ChainId, tokens?: Token[]) {
     super(pair, chainId, tokens)
-    this.name = 'DulySwap'
+    this.name = 'SushiSwap'
   }
 }
 
@@ -65,11 +66,11 @@ export class ChainlinkOracle extends AbstractOracle {
     if (!mapping) {
       return false
     }
-    const params = ethers.utils.defaultAbiCoder.decode(['address', 'address', 'uint256'], this.data)
+    const params = defaultAbiCoder.decode(['address', 'address', 'uint256'], this.data)
     let decimals = 54
     let from = ''
     let to = ''
-    if (params[0] !== ethers.constants.AddressZero) {
+    if (params[0] !== AddressZero) {
       if (!mapping![params[0]]) {
         this.error = 'One of the Chainlink oracles used is not configured in this UI.'
         return false
@@ -79,7 +80,7 @@ export class ChainlinkOracle extends AbstractOracle {
         to = mapping![params[0]].to
       }
     }
-    if (params[1] !== ethers.constants.AddressZero) {
+    if (params[1] !== AddressZero) {
       if (!mapping![params[1]]) {
         this.error = 'One of the Chainlink oracles used is not configured in this UI.'
         return false
