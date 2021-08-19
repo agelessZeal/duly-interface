@@ -5,7 +5,7 @@ import { BigNumber } from '@ethersproject/bignumber'
 import { injected } from '../connectors'
 
 export const RPC = {
-  [ChainId.MAINNET]: 'https://eth-mainnet.alchemyapi.io/v2/q1gSNoSMEzJms47Qn93f9-9Xg5clkmEC',
+  [ChainId.MAINNET]: 'https://eth-mainnet.alchemyapi.io/v2/ltE1K7mQs9E05usI4J6IO706waF9jYi_',
   [ChainId.ROPSTEN]: 'https://eth-ropsten.alchemyapi.io/v2/cidKix2Xr-snU3f6f6Zjq_rYdalKKHmW',
   [ChainId.RINKEBY]: 'https://eth-rinkeby.alchemyapi.io/v2/XVLwDlhGP6ApBXFz_lfv0aZ6VmurWhYD',
   [ChainId.GÖRLI]: 'https://eth-goerli.alchemyapi.io/v2/Dkk5d02QjttYEoGmhZnJG37rKt8Yl3Im',
@@ -115,10 +115,10 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     connector: async () => {
       const WalletConnectConnector = (await import('@web3-react/walletconnect-connector')).WalletConnectConnector
       return new WalletConnectConnector({
+        supportedChainIds: [1, 56],
         rpc: RPC,
-        bridge: 'https://bridge.walletconnect.org',
+        bridge: 'https://uniswap.bridge.walletconnect.org',
         qrcode: true,
-        pollingInterval: 15000,
       })
     },
     name: 'WalletConnect',

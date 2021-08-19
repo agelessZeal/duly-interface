@@ -27,7 +27,7 @@ export default function Web3Connect({ color = 'gray', size = 'sm', className = '
       onClick={toggleWalletModal}
       variant="outlined"
       color={color}
-      className={className}
+      className={color === 'blue' ? className + ' bg-gradient-to-br from-yellow text-white' : className}
       size={size}
       {...rest}
     >
