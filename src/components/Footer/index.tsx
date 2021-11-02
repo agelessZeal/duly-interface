@@ -14,11 +14,7 @@ const Footer = () => {
     <footer className="flex-shrink-0 w-full">
       <div className="flex items-center justify-between h-20 px-4">
         {chainId && chainId in ANALYTICS_URL && (
-          <ExternalLink
-            id={`analytics-nav-link`}
-            href={ANALYTICS_URL[chainId] || 'https://analytics.sushi.com'}
-            className="text-low-emphesis"
-          >
+          <ExternalLink id={`analytics-nav-link`} href={'https://dulydata.info/'} className="text-low-emphesis">
             <div className="flex items-center space-x-2">
               <div>{i18n._(t`Analytics`)}</div>
               <svg
@@ -33,7 +29,7 @@ const Footer = () => {
             </div>
           </ExternalLink>
         )}
-        {chainId && chainId === ChainId.MATIC && (
+        {/* {chainId && chainId === ChainId.MATIC && (
           <ExternalLink
             id={`polygon-bridge-link`}
             href="https://wallet.matic.network/bridge/"
@@ -61,7 +57,7 @@ const Footer = () => {
           <ExternalLink id={`palm-bridge-link`} href=" https://app.palm.io/bridge" className="text-low-emphesis">
             {i18n._(t`Palm Bridge`)}
           </ExternalLink>
-        )}
+        )} */}
 
         <Polling />
       </div>

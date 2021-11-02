@@ -57,6 +57,14 @@ function AppBar(): JSX.Element {
                           {i18n._(t`Pool`)}
                         </a>
                       </NavLink>
+
+                      <ExternalLink
+                        id={`analytics-nav-link`}
+                        href={'https://dulydata.info/'}
+                        className="p-2 text-baseline text-primary hover:text-high-emphesis focus:text-high-emphesis md:p-3 whitespace-nowrap"
+                      >
+                        {i18n._(t`Analytics`)}
+                      </ExternalLink>
                       {/* {chainId && featureEnabled(Feature.MIGRATE, chainId) && (
                         <NavLink href={'/migrate'}>
                           <a
@@ -337,16 +345,17 @@ function AppBar(): JSX.Element {
                     </a>
                   </Link>
                 )}
+                */}
 
                 {chainId && featureEnabled(Feature.ANALYTICS, chainId) && (
                   <ExternalLink
                     id={`analytics-nav-link`}
-                    href={ANALYTICS_URL[chainId] || 'https://analytics.sushi.com'}
+                    href={'https://dulydata.info/'}
                     className="p-2 text-baseline text-primary hover:text-high-emphesis focus:text-high-emphesis md:p-3 whitespace-nowrap"
                   >
                     {i18n._(t`Analytics`)}
                   </ExternalLink>
-                )} */}
+                )}
               </div>
             </Popover.Panel>
           </>
